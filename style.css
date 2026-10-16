@@ -1,0 +1,51 @@
+/* Lenis Smooth Scroll Recommended Rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #252934;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #d4ff00;
+}
+
+/* Glow Tokens */
+.glow-lime {
+  box-shadow: 0 0 25px rgba(212, 255, 0, 0.28);
+}
+.glow-lime-sm {
+  box-shadow: 0 0 12px rgba(212, 255, 0, 0.25);
+}
+
+/* Glass Panels */
+.cyber-glass {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Theme Smooth Transition */
+body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}

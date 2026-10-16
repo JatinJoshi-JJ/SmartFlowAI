@@ -1,0 +1,1595 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartFlow AI • Plan Smarter. Focus Deeper. Achieve More.</title>
+    <meta name="description"
+        content="Production-grade AI productivity workspace & task management suite featuring focus soundscapes, Gemini AI capabilities, and smooth momentum scrolling." />
+
+    <!-- Lenis Smooth Scroll CDN -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+                        display: ["Space Grotesk", "sans-serif"],
+                    },
+                    colors: {
+                        lime: {
+                            DEFAULT: "#D4FF00",
+                            neon: "#CCFF00",
+                            hover: "#B8E600",
+                            glow: "rgba(212, 255, 0, 0.35)",
+                            dim: "rgba(212, 255, 0, 0.12)",
+                        },
+                        obsidian: {
+                            DEFAULT: "#090A0D",
+                            surface: "#111318",
+                            card: "#171A21",
+                            border: "#252934",
+                            highlight: "#1E232E",
+                        },
+                        lightSurface: {
+                            DEFAULT: "#F8F9FA",
+                            card: "#FFFFFF",
+                            border: "#E2E8F0",
+                            highlight: "#F1F5F9",
+                            text: "#0F172A",
+                            muted: "#64748B",
+                        },
+                    },
+                    borderRadius: {
+                        pill: "9999px",
+                        cyber: "24px",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body
+    class="bg-lightSurface text-lightSurface-text dark:bg-obsidian dark:text-slate-100 font-sans min-h-screen antialiased selection:bg-lime selection:text-black">
+    <!-- ================= SECTION 1: PRELOADER ================= -->
+    <div id="preloader"
+        class="fixed inset-0 z-50 bg-[#090A0D] flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative flex flex-col items-center">
+            <div
+                class="w-16 h-16 rounded-2xl bg-lime flex items-center justify-center text-black font-display font-black text-3xl shadow-[0_0_30px_#D4FF00] animate-bounce">
+                SF
+            </div>
+            <h1 class="font-display font-black tracking-widest text-white text-xl mt-4">
+                SMARTFLOW<span class="text-lime">.AI</span>
+            </h1>
+            <p class="text-xs text-slate-400 font-mono tracking-wider mt-1">
+                PLAN SMARTER • FOCUS DEEPER
+            </p>
+            <div class="w-48 h-1 bg-obsidian-border rounded-full mt-6 overflow-hidden">
+                <div id="preloaderBar" class="h-full bg-lime w-0 transition-all duration-300"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 2: INSIGHT ANNOUNCEMENT BAR ================= -->
+    <div id="announcementBar"
+        class="bg-lime/10 dark:bg-gradient-to-r dark:from-obsidian-card dark:via-[#1A220F] dark:to-obsidian-card border-b border-lime/30 px-4 py-2 relative z-30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 overflow-hidden">
+                <span
+                    class="bg-lime text-black font-display font-bold px-2 py-0.5 rounded-full text-[10px] tracking-wider shrink-0">SMART
+                    TIP</span>
+                <p id="dailyInsightText" class="text-slate-700 dark:text-slate-300 truncate font-medium">
+                    "Small daily wins compound into massive breakthroughs. Review your 3
+                    main priorities today."
+                </p>
+            </div>
+            <button id="dismissAnnouncementBtn"
+                class="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white p-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition"
+                aria-label="Dismiss Announcement">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 3: STICKY CYBER NAVBAR WITH THEME TOGGLE ================= -->
+    <header
+        class="sticky top-0 z-40 cyber-glass bg-white/80 dark:bg-obsidian/85 border-b border-lightSurface-border dark:border-obsidian-border/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between">
+            <!-- Logo Branding -->
+            <a href="#"
+                class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-lime rounded-xl p-1">
+                <div
+                    class="w-10 h-10 rounded-xl bg-lime text-black font-display font-black text-xl flex items-center justify-center transition-transform group-hover:scale-105 shadow-[0_0_15px_rgba(212,255,0,0.3)]">
+                    X
+                </div>
+                <div>
+                    <span
+                        class="font-display font-black text-lg tracking-tight text-slate-900 dark:text-white block leading-tight">
+                        SMARTFLOW<span class="text-lime">.AI</span>
+                    </span>
+                    <span
+                        class="text-[9px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-mono block">Productivity
+                        Engine</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="hidden md:flex items-center gap-1 font-medium text-xs text-slate-600 dark:text-slate-300">
+                <a href="#workspace"
+                    class="px-3 py-2 rounded-xl hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Workspace</a>
+                <a href="#focusStudio"
+                    class="px-3 py-2 rounded-xl hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
+                    Focus Studio
+                </a>
+                <a href="#analytics"
+                    class="px-3 py-2 rounded-xl hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Analytics</a>
+                <a href="#achievements"
+                    class="px-3 py-2 rounded-xl hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Achievements</a>
+                <button id="navSettingsBtn"
+                    class="px-3 py-2 rounded-xl hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">
+                    Settings
+                </button>
+            </nav>
+
+            <!-- Right CTAs & Toggles -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Light / Dark Mode Toggle Button -->
+                <button id="themeToggleBtn" title="Toggle Light / Dark Mode" aria-label="Toggle Theme"
+                    class="p-2.5 rounded-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-lime hover:border-lime/40 transition">
+                    <!-- Sun Icon (Shown in Dark Mode) -->
+                    <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <!-- Moon Icon (Shown in Light Mode) -->
+                    <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+
+                <!-- Ambient Sound Generator Toggle -->
+                <button id="headerAudioToggle" title="Toggle Lo-Fi Focus Soundscape"
+                    class="p-2.5 rounded-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-lime hover:border-lime/40 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                </button>
+
+                <!-- Quick Add CTA -->
+                <button id="headerQuickAddBtn"
+                    class="bg-lime hover:bg-lime-hover text-black font-display font-bold px-4 py-2.5 rounded-pill text-xs flex items-center gap-1.5 glow-lime-sm transition active:scale-95">
+                    <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <span class="hidden sm:inline">Add Task</span>
+                </button>
+
+                <!-- Mobile Drawer Menu Toggle -->
+                <button id="mobileMenuToggle"
+                    class="md:hidden p-2 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-700 dark:text-slate-300"
+                    aria-label="Toggle Navigation Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Panel -->
+        <div id="mobileDrawer"
+            class="hidden md:hidden border-t border-lightSurface-border dark:border-obsidian-border bg-white dark:bg-obsidian p-4 space-y-2">
+            <a href="#workspace"
+                class="block px-3 py-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-lightSurface-highlight dark:hover:bg-obsidian-card">Workspace</a>
+            <a href="#focusStudio"
+                class="block px-3 py-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-lightSurface-highlight dark:hover:bg-obsidian-card">Focus
+                Studio</a>
+            <a href="#analytics"
+                class="block px-3 py-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-lightSurface-highlight dark:hover:bg-obsidian-card">Analytics
+                & Insights</a>
+            <a href="#achievements"
+                class="block px-3 py-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-lightSurface-highlight dark:hover:bg-obsidian-card">Achievements</a>
+            <button id="mobileOpenSettings"
+                class="w-full text-left px-3 py-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-lightSurface-highlight dark:hover:bg-obsidian-card">
+                Preferences & Backup
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-12">
+        <!-- SECTION 4: HERO & WORKSPACE OVERVIEW -->
+        <section
+            class="relative overflow-hidden rounded-cyber bg-white dark:bg-gradient-to-br dark:from-obsidian-surface dark:via-obsidian-card dark:to-[#12161E] border border-lightSurface-border dark:border-obsidian-border p-6 sm:p-10 shadow-sm">
+            <!-- Background Ambient Electric Halo -->
+            <div class="absolute -right-20 -top-20 w-96 h-96 bg-lime/10 rounded-full blur-[100px] pointer-events-none">
+            </div>
+
+            <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <!-- Left Greeting & Title -->
+                <div class="space-y-4 max-w-2xl">
+                    <div class="flex items-center gap-3">
+                        <span id="liveClock"
+                            class="font-mono text-xs text-slate-900 dark:text-lime bg-lime/20 dark:bg-lime/10 border border-lime/40 dark:border-lime/30 px-3 py-1 rounded-pill font-bold">
+                            10:42:00 AM
+                        </span>
+                        <span id="currentDateDisplay" class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                            Friday, Oct 16
+                        </span>
+                    </div>
+
+                    <h1
+                        class="font-display font-black text-4xl sm:text-6xl tracking-tight text-slate-900 dark:text-white leading-none">
+                        MAKE TODAY <br />
+                        <span class="text-lime bg-black dark:bg-transparent px-2 dark:px-0 rounded-lg">COUNT.</span>
+                    </h1>
+
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
+                        Streamline your objectives with Gemini 3 Flash intelligence,
+                        activate binaural focus soundscapes, and measure real progress
+                        with precision analytics.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#quickCreateSection"
+                            class="bg-lime hover:bg-lime-hover text-black font-display font-bold px-6 py-3 rounded-pill text-sm flex items-center gap-2 glow-lime-sm transition active:scale-95 shadow-md">
+                            <span>Create New Task</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                        <a href="#focusStudio"
+                            class="bg-lightSurface-highlight dark:bg-obsidian-highlight hover:bg-slate-200 dark:hover:bg-obsidian-border text-slate-800 dark:text-white border border-lightSurface-border dark:border-obsidian-border font-medium px-5 py-3 rounded-pill text-sm flex items-center gap-2 transition">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Launch
+                            Focus Mode
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Focus Soundscape Player Card -->
+                <div
+                    class="w-full lg:w-96 rounded-2xl bg-slate-900 dark:bg-black/60 border border-slate-800 dark:border-obsidian-border p-5 relative overflow-hidden backdrop-blur-md text-white shadow-xl">
+                    <div
+                        class="flex items-center justify-between pb-3 border-b border-slate-800 dark:border-obsidian-border">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-lime animate-ping"></span>
+                            <span class="text-xs font-display font-bold tracking-wider uppercase text-white">Focus Wave
+                                Engine</span>
+                        </div>
+                        <span id="audioTrackStatus"
+                            class="text-[10px] font-mono text-lime bg-lime/10 px-2 py-0.5 rounded-pill">READY</span>
+                    </div>
+
+                    <!-- Canvas Waveform Visualizer -->
+                    <div class="my-4 relative">
+                        <canvas id="waveformCanvas" width="340" height="70"
+                            class="w-full h-18 bg-black/40 rounded-xl border border-slate-800"></canvas>
+                        <div id="audioWavePrompt"
+                            class="absolute inset-0 flex items-center justify-center text-[11px] text-slate-400 pointer-events-none">
+                            Press play to synthesize 432Hz focus drone
+                        </div>
+                    </div>
+
+                    <!-- Audio Controls -->
+                    <div class="flex items-center justify-between gap-3 pt-1">
+                        <div class="flex items-center gap-2">
+                            <button id="togglePlayAudioBtn"
+                                class="w-10 h-10 rounded-full bg-lime hover:bg-lime-hover text-black flex items-center justify-center font-bold transition active:scale-95"
+                                aria-label="Play Audio">
+                                <svg id="playIcon" class="w-5 h-5 translate-x-0.5" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <svg id="pauseIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                </svg>
+                            </button>
+                            <div>
+                                <p class="text-xs font-semibold text-white truncate w-32">
+                                    Cyber Drift Drone
+                                </p>
+                                <p class="text-[10px] text-slate-400">Pure Web Audio Beats</p>
+                            </div>
+                        </div>
+
+                        <!-- Volume Controller -->
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5L6 9H2v6h4l5 4V5z" />
+                            </svg>
+                            <input id="audioVolume" type="range" min="0" max="1" step="0.05" value="0.5"
+                                class="w-16 accent-lime cursor-pointer" aria-label="Audio Volume" />
+                        </div>
+                    </div>
+
+                    <!-- Quick Sound Mode Selectors -->
+                    <div class="grid grid-cols-3 gap-1.5 mt-3 pt-2 border-t border-slate-800">
+                        <button data-sound="binaural"
+                            class="sound-mode-btn active-sound text-[10px] py-1 rounded-lg bg-lime text-black font-semibold text-center transition">
+                            Binaural
+                        </button>
+                        <button data-sound="deepdrone"
+                            class="sound-mode-btn text-[10px] py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-center transition">
+                            Cyber Zen
+                        </button>
+                        <button data-sound="whitenoise"
+                            class="sound-mode-btn text-[10px] py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-center transition">
+                            Rain Pulse
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 5: DAILY METRIC CARDS ================= -->
+        <section aria-label="Daily Overview Dashboard">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <!-- Total Tasks -->
+                <div
+                    class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs">
+                        <span>Total Tasks</span>
+                        <span class="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-500"></span>
+                    </div>
+                    <div class="mt-3">
+                        <span id="metricTotalTasks"
+                            class="font-display font-black text-3xl text-slate-900 dark:text-white">0</span>
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">Stored items</span>
+                    </div>
+                </div>
+
+                <!-- Active Tasks -->
+                <div
+                    class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs">
+                        <span>In Flight</span>
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                    </div>
+                    <div class="mt-3">
+                        <span id="metricActiveTasks"
+                            class="font-display font-black text-3xl text-blue-600 dark:text-blue-400">0</span>
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">Pending work</span>
+                    </div>
+                </div>
+
+                <!-- Completed Tasks -->
+                <div
+                    class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs">
+                        <span>Completed</span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-lime"></span>
+                    </div>
+                    <div class="mt-3">
+                        <span id="metricCompletedTasks"
+                            class="font-display font-black text-3xl text-emerald-600 dark:text-lime">0</span>
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">Accomplished</span>
+                    </div>
+                </div>
+
+                <!-- Today's Tasks -->
+                <div
+                    class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs">
+                        <span>Today's Target</span>
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    </div>
+                    <div class="mt-3">
+                        <span id="metricTodayTasks"
+                            class="font-display font-black text-3xl text-amber-500 dark:text-amber-300">0</span>
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">Due before
+                            midnight</span>
+                    </div>
+                </div>
+
+                <!-- Overdue Tasks -->
+                <div
+                    class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs">
+                        <span>Overdue</span>
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                    </div>
+                    <div class="mt-3">
+                        <span id="metricOverdueTasks" class="font-display font-black text-3xl text-rose-500">0</span>
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">Missed deadline</span>
+                    </div>
+                </div>
+
+                <!-- Completion Rate Meter -->
+                <div
+                    class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs">
+                        <span>Velocity</span>
+                        <span class="w-2 h-2 rounded-full bg-lime"></span>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between">
+                        <div>
+                            <span id="metricCompletionRate"
+                                class="font-display font-black text-2xl text-slate-900 dark:text-white">0%</span>
+                            <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Success rate</span>
+                        </div>
+                        <!-- Radial Micro Progress Meter -->
+                        <div class="w-10 h-10 relative">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-slate-200 dark:text-obsidian-border" stroke-width="4"
+                                    stroke="currentColor" fill="none"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path id="radialMeterPath" class="text-emerald-500 dark:text-lime"
+                                    stroke-dasharray="0, 100" stroke-width="4" stroke-linecap="round"
+                                    stroke="currentColor" fill="none"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 6: QUICK TASK CREATION + GEMINI NLP ================= -->
+        <section id="quickCreateSection"
+            class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber p-6 sm:p-8 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+                <div>
+                    <h2 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white tracking-tight">
+                        Create Smart Task
+                    </h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                        Intuitive metadata tagging powered by deterministic rules and
+                        Gemini AI.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button type="button" id="toggleMagicNlpBtn"
+                        class="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-900 dark:text-lime bg-lime/20 dark:bg-lime/10 border border-lime/40 dark:border-lime/30 hover:bg-lime hover:text-black px-3.5 py-1.5 rounded-pill transition active:scale-95 shadow-sm">
+                        <span>✦ Magic AI Parser</span>
+                    </button>
+                    <span
+                        class="hidden sm:inline-block text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border px-3 py-1.5 rounded-pill">
+                        ENTER TO SUBMIT
+                    </span>
+                </div>
+            </div>
+
+            <!-- Natural Language AI Task Prompt Drawer (Gemini Powered) -->
+            <div id="magicNlpContainer"
+                class="hidden mb-6 p-4 rounded-2xl bg-lime/5 dark:bg-gradient-to-r dark:from-obsidian-card dark:via-[#1A2508] dark:to-obsidian-card border border-lime/40 space-y-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-lime animate-ping"></span>
+                        <span
+                            class="text-xs font-display font-bold text-slate-900 dark:text-white uppercase tracking-wider">Gemini
+                            Magic Task Parser</span>
+                    </div>
+                    <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Gemini 3 Flash</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300">
+                    Type what you need to achieve in natural language. Gemini extracts
+                    title, priority, due date, category, duration, and tags
+                    automatically.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="text" id="magicPromptInput"
+                        placeholder="e.g., Prepare investor deck for tomorrow 3pm high priority #pitch #finance est 60 mins"
+                        class="flex-1 bg-white dark:bg-obsidian border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl px-4 py-2.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none" />
+                    <button type="button" id="submitMagicPromptBtn"
+                        class="bg-lime hover:bg-lime-hover text-black font-display font-bold px-5 py-2.5 rounded-pill text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shrink-0 shadow-sm">
+                        <span id="magicBtnText">✦ Parse & Add Task</span>
+                        <div id="magicLoadingSpinner"
+                            class="hidden w-3.5 h-3.5 border-2 border-black border-t-transparent rounded-full animate-spin">
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <form id="createTaskForm" class="space-y-4">
+                <!-- Main Title Input -->
+                <div class="relative">
+                    <input type="text" id="taskTitleInput" required maxlength="120"
+                        placeholder="What objective will you conquer next? (e.g., Deploy Web3 smart contract)"
+                        class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime focus:ring-1 focus:ring-lime rounded-2xl px-4 py-3.5 text-sm sm:text-base text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none transition" />
+                    <span id="titleValidationMsg" class="hidden text-xs text-rose-500 mt-1 pl-2 font-medium">Please
+                        enter a valid title.</span>
+                </div>
+
+                <!-- Optional Description -->
+                <div>
+                    <textarea id="taskDescInput" rows="2" maxlength="300"
+                        placeholder="Add brief context, sub-items, or relevant links (optional)"
+                        class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime focus:ring-1 focus:ring-lime rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 outline-none transition"></textarea>
+                </div>
+
+                <!-- Grid of Metadata Controls -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <!-- Priority Selector -->
+                    <div class="space-y-1">
+                        <label
+                            class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block uppercase tracking-wider">Priority
+                            Level</label>
+                        <div
+                            class="grid grid-cols-3 gap-1 bg-lightSurface-highlight dark:bg-obsidian-card p-1 rounded-xl border border-lightSurface-border dark:border-obsidian-border">
+                            <button type="button" data-priority="low"
+                                class="priority-choice-btn py-1.5 text-[11px] font-bold rounded-lg text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                                Low
+                            </button>
+                            <button type="button" data-priority="medium"
+                                class="priority-choice-btn active-priority py-1.5 text-[11px] font-bold rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 transition">
+                                Med
+                            </button>
+                            <button type="button" data-priority="high"
+                                class="priority-choice-btn py-1.5 text-[11px] font-bold rounded-lg text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                                High
+                            </button>
+                        </div>
+                        <input type="hidden" id="selectedPriority" value="medium" />
+                    </div>
+
+                    <!-- Category Selector -->
+                    <div class="space-y-1">
+                        <label
+                            class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block uppercase tracking-wider">Category</label>
+                        <select id="taskCategorySelect"
+                            class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white outline-none">
+                            <option value="Development">💻 Development</option>
+                            <option value="Design">🎨 UI/UX Design</option>
+                            <option value="Study">📚 Deep Study</option>
+                            <option value="Operations">⚡ Operations</option>
+                            <option value="Personal">🧘 Personal Life</option>
+                        </select>
+                    </div>
+
+                    <!-- Due Date & Time -->
+                    <div class="space-y-1">
+                        <label
+                            class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block uppercase tracking-wider">Target
+                            Due Date</label>
+                        <input type="date" id="taskDueDateInput"
+                            class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white outline-none" />
+                    </div>
+
+                    <!-- Estimated Minutes & Tags -->
+                    <div class="space-y-1">
+                        <label
+                            class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block uppercase tracking-wider">Duration
+                            (Mins) & Tags</label>
+                        <div class="flex gap-2">
+                            <input type="number" id="taskDurationInput" min="5" max="360" step="5"
+                                placeholder="Est. Mins"
+                                class="w-1/2 bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white outline-none" />
+                            <input type="text" id="taskTagsInput" placeholder="#dev, #sprint"
+                                class="w-1/2 bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white outline-none" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rule-Based AI Tip Banner -->
+                <div id="smartSuggestionBanner"
+                    class="hidden p-3 rounded-xl bg-lime/10 border border-lime/30 text-slate-900 dark:text-lime text-xs flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold">✦ AI Suggestion:</span>
+                        <span id="suggestionText">Due today detected — automatically elevated to High
+                            priority.</span>
+                    </div>
+                    <button type="button" id="applySuggestionBtn"
+                        class="bg-lime text-black font-bold px-3 py-1 rounded-pill text-[10px] hover:bg-lime-hover shadow-sm">
+                        Apply
+                    </button>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="flex items-center justify-end gap-3 pt-2">
+                    <button type="reset" id="resetFormBtn"
+                        class="px-4 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                        Clear
+                    </button>
+                    <button type="submit"
+                        class="bg-lime hover:bg-lime-hover text-black font-display font-bold px-6 py-2.5 rounded-pill text-xs tracking-wider uppercase glow-lime-sm transition active:scale-95 flex items-center gap-2 shadow-md">
+                        <span>Add Task to Stream</span>
+                        <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ================= SECTION 7 & 8: TASK WORKSPACE & SEARCH ================= -->
+        <section id="workspace" class="space-y-6">
+            <!-- Section Header with Filter Controls -->
+            <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-lightSurface-border dark:border-obsidian-border pb-4">
+                <div>
+                    <h2
+                        class="font-display font-black text-3xl text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+                        <span>ACTIVE WORKSTREAM</span>
+                        <span id="filteredCountBadge"
+                            class="text-xs font-mono font-normal bg-lime/20 dark:bg-lime/10 text-slate-900 dark:text-lime border border-lime/40 dark:border-lime/30 px-3 py-0.5 rounded-pill font-bold">
+                            0 tasks
+                        </span>
+                    </h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        Organized by deadlines, dynamic priority metrics, and tags.
+                    </p>
+                </div>
+
+                <!-- Search Bar and Sorting Select -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <!-- Search Box -->
+                    <div class="relative w-full sm:w-64">
+                        <input type="text" id="taskSearchInput" placeholder="Filter tasks or #tags..."
+                            class="w-full bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl pl-9 pr-3 py-2 text-xs text-slate-900 dark:text-white outline-none placeholder-slate-400 dark:placeholder-slate-500 shadow-sm" />
+                        <svg class="w-4 h-4 text-slate-400 dark:text-slate-500 absolute left-3 top-2.5" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+
+                    <!-- Sort Select -->
+                    <select id="taskSortSelect"
+                        class="bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border focus:border-lime rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200 outline-none shadow-sm">
+                        <option value="dueDate">Sort: Due Date</option>
+                        <option value="priority">Sort: High Priority</option>
+                        <option value="newest">Sort: Newest First</option>
+                        <option value="title">Sort: Alphabetical</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filter Tabs Navigation -->
+            <div class="flex items-center gap-1 overflow-x-auto pb-2">
+                <button data-filter="all"
+                    class="filter-tab-btn active-filter px-4 py-1.5 rounded-pill text-xs font-bold bg-lime text-black transition shadow-sm">
+                    All
+                </button>
+                <button data-filter="today"
+                    class="filter-tab-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                    Today
+                </button>
+                <button data-filter="upcoming"
+                    class="filter-tab-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                    Upcoming
+                </button>
+                <button data-filter="overdue"
+                    class="filter-tab-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                    Overdue
+                </button>
+                <button data-filter="active"
+                    class="filter-tab-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                    Active
+                </button>
+                <button data-filter="completed"
+                    class="filter-tab-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition">
+                    Completed
+                </button>
+            </div>
+
+            <!-- Task Cards Container -->
+            <div id="tasksListContainer" class="space-y-3">
+                <!-- Rendered dynamically by JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyTasksState"
+                class="hidden py-16 text-center border-2 border-dashed border-lightSurface-border dark:border-obsidian-border rounded-cyber p-8 bg-white dark:bg-transparent">
+                <div
+                    class="w-16 h-16 mx-auto rounded-2xl bg-lightSurface-highlight dark:bg-obsidian-card flex items-center justify-center text-slate-400 dark:text-slate-500 mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">
+                    No tasks match this filter
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto mt-1">
+                    Enjoy the clarity, or start by adding a new objective above to fuel
+                    your momentum.
+                </p>
+                <button onclick="document.getElementById('taskTitleInput').focus()"
+                    class="mt-4 bg-lime/20 dark:bg-lime/10 border border-lime/40 dark:border-lime/30 text-slate-900 dark:text-lime font-bold text-xs px-4 py-2 rounded-pill hover:bg-lime hover:text-black transition">
+                    + Add First Objective
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 10: SMART FOCUS MODE (CYBER POMODORO) ================= -->
+        <section id="focusStudio"
+            class="rounded-cyber bg-white dark:bg-gradient-to-b dark:from-obsidian-surface dark:to-obsidian-card border border-lightSurface-border dark:border-obsidian-border p-6 sm:p-10 relative overflow-hidden shadow-sm">
+            <div class="max-w-2xl mx-auto text-center space-y-6">
+                <div>
+                    <span
+                        class="text-[10px] font-mono tracking-widest uppercase bg-lime/20 dark:bg-lime/10 text-slate-900 dark:text-lime border border-lime/40 dark:border-lime/30 px-3 py-1 rounded-pill font-bold">
+                        DISTRACTION-MINIMIZED ENVIRONMENT
+                    </span>
+                    <h2
+                        class="font-display font-black text-3xl sm:text-4xl text-slate-900 dark:text-white tracking-tight mt-3">
+                        SMART FOCUS
+                        <span class="text-lime bg-black dark:bg-transparent px-2 dark:px-0 rounded-lg">STUDIO</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        Lock into deep flow with custom intervals and session analytics.
+                    </p>
+                </div>
+
+                <!-- Task Linker -->
+                <div
+                    class="bg-lightSurface-highlight dark:bg-obsidian border border-lightSurface-border dark:border-obsidian-border rounded-2xl p-3 flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2 overflow-hidden text-left">
+                        <span class="text-slate-500 font-semibold uppercase text-[10px] shrink-0">Focus Target:</span>
+                        <span id="focusCurrentTaskTitle" class="text-emerald-600 dark:text-lime font-bold truncate">No
+                            specific task selected</span>
+                    </div>
+                    <button id="changeFocusTaskBtn"
+                        class="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white text-[11px] font-medium underline shrink-0 ml-2">
+                        Choose Task
+                    </button>
+                </div>
+
+                <!-- Circular Visual Timer Countdown -->
+                <div class="relative w-64 h-64 mx-auto flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+                        <!-- Background Track -->
+                        <circle cx="60" cy="60" r="54" stroke="currentColor" stroke-width="6"
+                            class="text-slate-200 dark:text-obsidian-border" fill="none" />
+                        <!-- Active Lime Progress Track -->
+                        <circle id="focusProgressRing" cx="60" cy="60" r="54" stroke="currentColor" stroke-width="6"
+                            class="text-emerald-500 dark:text-lime" stroke-dasharray="339.29" stroke-dashoffset="0"
+                            stroke-linecap="round" fill="none" style="transition: stroke-dashoffset 1s linear" />
+                    </svg>
+                    <!-- Inner Clock Display -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span id="focusTimeDigits"
+                            class="font-display font-black text-5xl text-slate-900 dark:text-white tracking-tight">25:00</span>
+                        <span id="focusModeLabel"
+                            class="text-[10px] font-mono text-emerald-600 dark:text-lime tracking-widest uppercase mt-1 font-bold">DEEP
+                            FOCUS</span>
+                    </div>
+                </div>
+
+                <!-- Focus Duration Selector Buttons -->
+                <div class="flex items-center justify-center gap-2">
+                    <button data-duration="25"
+                        class="timer-mode-btn active-timer-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-lime text-black transition shadow-sm">
+                        25m Deep Work
+                    </button>
+                    <button data-duration="5"
+                        class="timer-mode-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-lightSurface-highlight dark:bg-obsidian border border-lightSurface-border dark:border-obsidian-border text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white transition">
+                        5m Short Break
+                    </button>
+                    <button data-duration="15"
+                        class="timer-mode-btn px-4 py-1.5 rounded-pill text-xs font-bold bg-lightSurface-highlight dark:bg-obsidian border border-lightSurface-border dark:border-obsidian-border text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white transition">
+                        15m Long Break
+                    </button>
+                </div>
+
+                <!-- Play / Pause / Reset Controls -->
+                <div class="flex items-center justify-center gap-4 pt-2">
+                    <button id="focusResetBtn"
+                        class="p-3 rounded-full bg-lightSurface-highlight dark:bg-obsidian border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition"
+                        title="Reset Session">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </button>
+
+                    <button id="focusTogglePlayBtn"
+                        class="w-16 h-16 rounded-full bg-lime hover:bg-lime-hover text-black font-black flex items-center justify-center text-xl glow-lime transition active:scale-95 shadow-lg"
+                        aria-label="Start Timer">
+                        <svg id="timerPlayIcon" class="w-7 h-7 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <svg id="timerPauseIcon" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                        </svg>
+                    </button>
+
+                    <button id="focusSkipBtn"
+                        class="p-3 rounded-full bg-lightSurface-highlight dark:bg-obsidian border border-lightSurface-border dark:border-obsidian-border text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition"
+                        title="Complete Early">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <p class="text-[11px] text-slate-500 font-mono">
+                    Completed Today:
+                    <span id="completedSessionsCount" class="text-slate-900 dark:text-white font-bold">0</span>
+                    sessions (<span id="completedFocusMinutes"
+                        class="text-emerald-600 dark:text-lime font-bold">0</span>
+                    mins recorded)
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 11 & 9: PRODUCTIVITY ANALYTICS & GEMINI EXECUTIVE BRIEFING ================= -->
+        <section id="analytics" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left 2 Cols: Real-time Analytics Visualizer -->
+            <div
+                class="lg:col-span-2 bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white tracking-tight">
+                            Productivity Analytics
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                            Deterministic metrics computed directly from local completion
+                            logs.
+                        </p>
+                    </div>
+                    <span
+                        class="text-xs font-mono text-slate-900 dark:text-lime bg-lime/20 dark:bg-lime/10 px-3 py-1 rounded-pill border border-lime/40 dark:border-lime/30 font-bold">7-Day
+                        Velocity</span>
+                </div>
+
+                <!-- Weekly Completion Bar Chart (SVG Rendered) -->
+                <div
+                    class="bg-lightSurface-highlight dark:bg-obsidian-card p-4 rounded-2xl border border-lightSurface-border dark:border-obsidian-border">
+                    <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-3">
+                        <span>Weekly Tasks Accomplished</span>
+                        <span class="text-slate-800 dark:text-slate-300 font-bold" id="weeklyTotalCount">0
+                            Completed</span>
+                    </div>
+
+                    <div id="weeklyChartContainer" class="h-44 w-full flex items-end justify-between gap-2 pt-6 px-2">
+                        <!-- Generated via JavaScript with proper SVG bars -->
+                    </div>
+                </div>
+
+                <!-- Categories & Priority Breakdown Progress -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Category Distribution -->
+                    <div
+                        class="bg-lightSurface-highlight dark:bg-obsidian-card p-4 rounded-2xl border border-lightSurface-border dark:border-obsidian-border space-y-3">
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                            Category Density
+                        </h4>
+                        <div id="categoryDensityContainer" class="space-y-2 text-xs">
+                            <!-- Rendered via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Priority Distribution -->
+                    <div
+                        class="bg-lightSurface-highlight dark:bg-obsidian-card p-4 rounded-2xl border border-lightSurface-border dark:border-obsidian-border space-y-3">
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                            Priority Spread
+                        </h4>
+                        <div id="priorityDensityContainer" class="space-y-2 text-xs">
+                            <!-- Rendered via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 1 Col: Rule-Based & Gemini AI Insights -->
+            <div
+                class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber p-6 sm:p-8 flex flex-col justify-between shadow-sm">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-lime animate-pulse"></span>
+                            <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">
+                                Smart Productivity Insights
+                            </h3>
+                        </div>
+                        <button id="generateAiBriefingBtn"
+                            class="text-[11px] font-bold text-black bg-lime hover:bg-lime-hover px-3 py-1 rounded-pill flex items-center gap-1 transition active:scale-95 shadow-sm">
+                            <span>✦ AI Executive Briefing</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Algorithmic analysis of your current schedule, deadline pressures,
+                        and velocity.
+                    </p>
+
+                    <!-- Gemini AI Strategic Briefing Container -->
+                    <div id="aiBriefingContainer"
+                        class="hidden p-3.5 rounded-2xl bg-lime/10 dark:bg-gradient-to-br dark:from-obsidian-card dark:to-[#16200B] border border-lime/40 text-xs space-y-2">
+                        <div class="flex items-center justify-between text-slate-900 dark:text-lime font-bold">
+                            <span class="flex items-center gap-1.5">
+                                <span class="text-sm">🧠</span> Gemini Strategic Briefing
+                            </span>
+                            <button id="closeAiBriefingBtn"
+                                class="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white text-xs">
+                                ✕
+                            </button>
+                        </div>
+                        <div id="aiBriefingContent"
+                            class="text-slate-800 dark:text-slate-200 leading-relaxed space-y-1">
+                            <!-- Injected by Gemini API -->
+                        </div>
+                    </div>
+
+                    <div id="smartInsightsList" class="space-y-3 pt-2">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Quick Starter Template Recommendations -->
+                <div class="pt-6 border-t border-lightSurface-border dark:border-obsidian-border/80 mt-6 space-y-3">
+                    <span
+                        class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block uppercase tracking-wider">Recommended
+                        Starters</span>
+                    <div class="space-y-1.5">
+                        <button data-starter="Deep Work Code Sprint (2 hrs)"
+                            class="starter-task-btn w-full text-left p-2 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card hover:bg-slate-200 dark:hover:bg-white/5 border border-lightSurface-border dark:border-obsidian-border text-xs text-slate-800 dark:text-slate-300 flex items-center justify-between group transition">
+                            <span>🚀 Deep Work Code Sprint</span>
+                            <span
+                                class="text-emerald-600 dark:text-lime opacity-0 group-hover:opacity-100 font-bold">+</span>
+                        </button>
+                        <button data-starter="Design System Token Audit"
+                            class="starter-task-btn w-full text-left p-2 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card hover:bg-slate-200 dark:hover:bg-white/5 border border-lightSurface-border dark:border-obsidian-border text-xs text-slate-800 dark:text-slate-300 flex items-center justify-between group transition">
+                            <span>🎨 Design System Token Audit</span>
+                            <span
+                                class="text-emerald-600 dark:text-lime opacity-0 group-hover:opacity-100 font-bold">+</span>
+                        </button>
+                        <button data-starter="Review Daily Backlog & Triage"
+                            class="starter-task-btn w-full text-left p-2 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card hover:bg-slate-200 dark:hover:bg-white/5 border border-lightSurface-border dark:border-obsidian-border text-xs text-slate-800 dark:text-slate-300 flex items-center justify-between group transition">
+                            <span>⚡ Review Daily Backlog & Triage</span>
+                            <span
+                                class="text-emerald-600 dark:text-lime opacity-0 group-hover:opacity-100 font-bold">+</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 12: ACHIEVEMENTS & MILESTONES ================= -->
+        <section id="achievements"
+            class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber p-6 sm:p-8 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="font-display font-black text-2xl text-slate-900 dark:text-white tracking-tight">
+                        Milestones & Achievements
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Earned through genuine focus sessions and completed
+                        responsibilities.
+                    </p>
+                </div>
+                <span id="unlockedBadgesCount"
+                    class="text-xs font-mono text-slate-900 dark:text-lime bg-lime/20 dark:bg-lime/10 border border-lime/40 dark:border-lime/30 px-3 py-1 rounded-pill font-bold">0
+                    / 4 Unlocked</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Milestone 1 -->
+                <div id="badge-first-step"
+                    class="badge-card p-4 rounded-2xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border opacity-60 transition">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-lg mb-3 badge-icon">
+                        🎯
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white">
+                        First Step
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                        Complete your very first task on SmartFlow AI.
+                    </p>
+                    <div class="mt-3 text-[10px] font-mono text-slate-500 badge-status">
+                        Locked
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div id="badge-momentum"
+                    class="badge-card p-4 rounded-2xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border opacity-60 transition">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-lg mb-3 badge-icon">
+                        ⚡
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white">
+                        Momentum Builder
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                        Complete 5 tasks to establish steady velocity.
+                    </p>
+                    <div class="mt-3 text-[10px] font-mono text-slate-500 badge-status">
+                        0 / 5 Done
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div id="badge-focus"
+                    class="badge-card p-4 rounded-2xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border opacity-60 transition">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-lg mb-3 badge-icon">
+                        🧠
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white">
+                        Focus Initiate
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                        Complete 1 full deep work Pomodoro focus session.
+                    </p>
+                    <div class="mt-3 text-[10px] font-mono text-slate-500 badge-status">
+                        Locked
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div id="badge-deadline"
+                    class="badge-card p-4 rounded-2xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border opacity-60 transition">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-lg mb-3 badge-icon">
+                        🏆
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white">
+                        Deadline Hero
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                        Finish a task before its configured due date.
+                    </p>
+                    <div class="mt-3 text-[10px] font-mono text-slate-500 badge-status">
+                        Locked
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 15 & 16: PHILOSOPHY & FAQ ACCORDION ================= -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Philosophy / Designed for Better Work -->
+            <div
+                class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber p-6 sm:p-8 space-y-4 shadow-sm">
+                <span
+                    class="text-[10px] font-mono uppercase tracking-widest text-slate-900 dark:text-lime bg-lime/20 dark:bg-lime/10 border border-lime/40 dark:border-lime/30 px-3 py-1 rounded-pill font-bold">
+                    DESIGNED FOR BETTER WORK
+                </span>
+                <h3 class="font-display font-black text-2xl text-slate-900 dark:text-white tracking-tight">
+                    Clarity Over Clutter. Progress Over Perfection.
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    SmartFlow AI was engineered to eradicate context switching. By
+                    marrying responsive task tracking with native ambient audio
+                    synthesis, Gemini AI parsing, and rule-based workload intelligence,
+                    we ensure every session moves the needle forward.
+                </p>
+
+                <div class="grid grid-cols-2 gap-3 pt-3">
+                    <div
+                        class="p-3 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border">
+                        <span class="text-emerald-600 dark:text-lime font-bold text-sm block">100% Client-Side</span>
+                        <span class="text-[11px] text-slate-500 dark:text-slate-400">Your data never leaves your
+                            device.</span>
+                    </div>
+                    <div
+                        class="p-3 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border">
+                        <span class="text-emerald-600 dark:text-lime font-bold text-sm block">Synthesized Audio</span>
+                        <span class="text-[11px] text-slate-500 dark:text-slate-400">Zero external streaming
+                            dependencies.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div
+                class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber p-6 sm:p-8 space-y-3 shadow-sm">
+                <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">
+                    Frequently Asked Questions
+                </h3>
+
+                <!-- FAQ 1 -->
+                <div
+                    class="faq-item border border-lightSurface-border dark:border-obsidian-border rounded-xl overflow-hidden bg-lightSurface-highlight dark:bg-obsidian-card">
+                    <button
+                        class="faq-btn w-full p-3.5 text-left text-xs font-bold text-slate-900 dark:text-white flex items-center justify-between">
+                        <span>Where is my task and focus data stored?</span>
+                        <span
+                            class="faq-icon text-slate-700 dark:text-lime font-bold text-base transition-transform">+</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-3.5 pb-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-lightSurface-border dark:border-obsidian-border/50 pt-2">
+                        All tasks, focus histories, and milestones persist in your
+                        browser's private
+                        <code class="text-emerald-600 dark:text-lime font-bold">localStorage</code>. Refreshing the
+                        browser or returning later keeps your data fully
+                        intact.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    class="faq-item border border-lightSurface-border dark:border-obsidian-border rounded-xl overflow-hidden bg-lightSurface-highlight dark:bg-obsidian-card">
+                    <button
+                        class="faq-btn w-full p-3.5 text-left text-xs font-bold text-slate-900 dark:text-white flex items-center justify-between">
+                        <span>How does Gemini AI enhance my workflow?</span>
+                        <span
+                            class="faq-icon text-slate-700 dark:text-lime font-bold text-base transition-transform">+</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-3.5 pb-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-lightSurface-border dark:border-obsidian-border/50 pt-2">
+                        Gemini 3 Flash powers Natural Language Task Parsing, intelligent
+                        multi-step Subtask Decomposition, and custom Executive Briefings
+                        that prioritize your high-impact objectives.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    class="faq-item border border-lightSurface-border dark:border-obsidian-border rounded-xl overflow-hidden bg-lightSurface-highlight dark:bg-obsidian-card">
+                    <button
+                        class="faq-btn w-full p-3.5 text-left text-xs font-bold text-slate-900 dark:text-white flex items-center justify-between">
+                        <span>Can I backup or export my tasks?</span>
+                        <span
+                            class="faq-icon text-slate-700 dark:text-lime font-bold text-base transition-transform">+</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-3.5 pb-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-lightSurface-border dark:border-obsidian-border/50 pt-2">
+                        Yes! Click Settings in the top bar to export your complete
+                        database as a portable JSON backup file or restore from a previous
+                        backup file at any time.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 18: FINAL PRODUCTIVITY CTA ================= -->
+        <section
+            class="rounded-cyber bg-gradient-to-r from-lime to-lime-neon p-8 sm:p-10 text-black flex flex-col sm:flex-row sm:items-center justify-between gap-6 glow-lime shadow-xl">
+            <div class="space-y-1 max-w-xl">
+                <h2 class="font-display font-black text-3xl sm:text-4xl tracking-tight leading-tight">
+                    PROGRESS STARTS WITH ONE SMALL STEP.
+                </h2>
+                <p class="text-xs sm:text-sm font-medium text-black/80">
+                    Transform your daily ambition into structured, measurable
+                    achievements today.
+                </p>
+            </div>
+            <a href="#quickCreateSection"
+                class="bg-black hover:bg-neutral-900 text-white font-display font-bold px-8 py-4 rounded-pill text-xs uppercase tracking-wider transition active:scale-95 shadow-xl text-center shrink-0">
+                Launch New Task Stream
+            </a>
+        </section>
+    </main>
+
+    <!-- ================= SECTION 19: PREMIUM CYBER SAAS FOOTER ================= -->
+    <footer
+        class="border-t border-lightSurface-border dark:border-obsidian-border mt-20 bg-lightSurface-highlight/60 dark:bg-obsidian-surface/90 pt-14 pb-8 text-xs transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+            <!-- Top Grid: Brand & Categorized Navigation Columns -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+                <!-- Brand & Description (2 cols on lg) -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-xl bg-lime text-black font-display font-black flex items-center justify-center text-lg shadow-[0_0_15px_rgba(212,255,0,0.35)] shrink-0">
+                            X
+                        </div>
+                        <div>
+                            <span
+                                class="font-display font-black text-lg tracking-tight text-slate-900 dark:text-white block leading-none">
+                                SMARTFLOW<span class="text-lime">.AI</span>
+                            </span>
+                            <span
+                                class="text-[9px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-mono block mt-0.5">Productivity
+                                & Focus Workspace</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Empowering students, developers, and professionals to eliminate
+                        cognitive clutter, track high-impact goals, and enter deep flow
+                        with procedural focus audio and Gemini intelligence.
+                    </p>
+
+                    <!-- System Status Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-[11px] font-mono text-slate-700 dark:text-slate-300">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>100% Client-Side Engine • Private & Local</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Workspace & Core Tools -->
+                <div class="space-y-3">
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
+                        Workspace
+                    </h4>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                        <li>
+                            <a href="#quickCreateSection"
+                                class="hover:text-black dark:hover:text-lime transition">Create New Task</a>
+                        </li>
+                        <li>
+                            <a href="#workspace" class="hover:text-black dark:hover:text-lime transition">Active
+                                Workstream</a>
+                        </li>
+                        <li>
+                            <a href="#focusStudio"
+                                class="hover:text-black dark:hover:text-lime transition flex items-center gap-1.5">Focus
+                                Studio
+                                <span
+                                    class="text-[9px] font-mono bg-lime/20 dark:bg-lime/10 text-slate-900 dark:text-lime border border-lime/30 px-1.5 py-0.2 rounded-full font-bold">25m</span></a>
+                        </li>
+                        <li>
+                            <a href="#workspace" class="hover:text-black dark:hover:text-lime transition">Priority
+                                Filter & Matrix</a>
+                        </li>
+                        <li>
+                            <a href="#achievements" class="hover:text-black dark:hover:text-lime transition">Milestones
+                                & Badges</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: AI & Analytics -->
+                <div class="space-y-3">
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
+                        Intelligence
+                    </h4>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                        <li>
+                            <button type="button" onclick="
+                    document.getElementById('toggleMagicNlpBtn')?.click();
+                    window.scrollTo({ top: 350, behavior: 'smooth' });
+                  " class="hover:text-black dark:hover:text-lime text-left transition flex items-center gap-1">
+                                <span class="text-emerald-600 dark:text-lime font-bold">✦</span>
+                                Magic NLP Parser
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#analytics" class="hover:text-black dark:hover:text-lime transition">7-Day Velocity
+                                Chart</a>
+                        </li>
+                        <li>
+                            <button type="button" onclick="
+                    document.getElementById('generateAiBriefingBtn')?.click();
+                    window.scrollTo({ top: 1400, behavior: 'smooth' });
+                  " class="hover:text-black dark:hover:text-lime text-left transition">
+                                Executive Briefing
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#analytics" class="hover:text-black dark:hover:text-lime transition">Category &
+                                Priority Spread</a>
+                        </li>
+                        <li>
+                            <a href="#waveformCanvas" class="hover:text-black dark:hover:text-lime transition">432Hz
+                                Binaural Soundscape</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Data & Preferences -->
+                <div class="space-y-3">
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
+                        Preferences & Portability
+                    </h4>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                        <li>
+                            <button type="button" id="footerSettingsTrigger"
+                                class="hover:text-black dark:hover:text-lime text-left transition">
+                                Workspace Settings
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" onclick="exportBackupJson()"
+                                class="hover:text-black dark:hover:text-lime text-left transition flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-emerald-600 dark:text-lime" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                Export JSON Data
+                            </button>
+                        </li>
+                        <li>
+                            <label
+                                class="hover:text-black dark:hover:text-lime cursor-pointer transition flex items-center gap-1.5"><svg
+                                    class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                </svg>
+                                Import JSON Backup<input type="file" accept=".json" class="hidden"
+                                    onchange="importBackupJson(event)" /></label>
+                        </li>
+                        <li>
+                            <a href="#quickCreateSection"
+                                class="hover:text-black dark:hover:text-lime transition">Starter Objectives</a>
+                        </li>
+                        <li>
+                            <button type="button" onclick="toggleTheme()"
+                                class="hover:text-black dark:hover:text-lime text-left transition">
+                                Switch Theme (Light/Dark)
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar: Legal, Tech Stack, Dynamic Year & Smooth Back-To-Top Button -->
+            <div
+                class="border-t border-lightSurface-border dark:border-obsidian-border/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-slate-500 dark:text-slate-400 text-[11px]">
+                    <span>© <span id="currentYear">2026</span> SmartFlow AI. All rights
+                        reserved.</span>
+                    <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+                    <span>Engineered with Lenis, Web Audio API & Gemini 3 Flash</span>
+                    <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+                    <span class="text-slate-700 dark:text-slate-300 font-medium">Plan Smarter. Focus Deeper. Achieve
+                        More.</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button id="backToTopBtn"
+                        class="flex items-center gap-2 px-3.5 py-2 rounded-pill bg-white dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border hover:border-lime/60 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-lime transition text-[11px] font-semibold shadow-sm active:scale-95 group"
+                        title="Return to top of page">
+                        <span>Back to Top</span>
+                        <svg class="w-3.5 h-3.5 transform group-hover:-translate-y-0.5 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= SECTION 17: SETTINGS & DATA MODAL ================= -->
+    <div id="settingsModal"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber max-w-md w-full p-6 space-y-6 shadow-2xl">
+            <div
+                class="flex items-center justify-between border-b border-lightSurface-border dark:border-obsidian-border pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-lime"></span>
+                    <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">
+                        Workspace Preferences
+                    </h3>
+                </div>
+                <button id="closeSettingsModal"
+                    class="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs">
+                <!-- Appearance Mode -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-slate-900 dark:text-white font-medium block">Color Theme</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-[11px]">Select your preferred interface
+                            style</span>
+                    </div>
+                    <select id="settingThemeSelect"
+                        class="bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-900 dark:text-white rounded-xl px-2 py-1 outline-none">
+                        <option value="dark">Dark Pitch (Obsidian)</option>
+                        <option value="light">Clean Light</option>
+                        <option value="system">System Preference</option>
+                    </select>
+                </div>
+
+                <!-- Default Pomodoro Duration -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-slate-900 dark:text-white font-medium block">Default Focus Duration</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-[11px]">Minutes per Pomodoro cycle</span>
+                    </div>
+                    <select id="settingFocusDuration"
+                        class="bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border text-slate-900 dark:text-white rounded-xl px-2 py-1 outline-none">
+                        <option value="25">25 minutes</option>
+                        <option value="30">30 minutes</option>
+                        <option value="45">45 minutes</option>
+                        <option value="60">60 minutes</option>
+                    </select>
+                </div>
+
+                <!-- Data Backup & Migration -->
+                <div class="pt-3 border-t border-lightSurface-border dark:border-obsidian-border space-y-2">
+                    <span
+                        class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider block">Data
+                        Management</span>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button id="exportDataBtn"
+                            class="p-2.5 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border hover:border-lime/40 text-slate-800 dark:text-slate-200 font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <svg class="w-3.5 h-3.5 text-emerald-600 dark:text-lime" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span>Export JSON</span>
+                        </button>
+                        <label
+                            class="p-2.5 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border hover:border-lime/40 text-slate-800 dark:text-slate-200 font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
+                            <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            <span>Import JSON</span>
+                            <input type="file" id="importDataInput" accept=".json" class="hidden" />
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="pt-3 border-t border-lightSurface-border dark:border-obsidian-border">
+                    <button id="clearAllDataBtn"
+                        class="w-full p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 hover:bg-rose-500/20 text-rose-500 font-bold transition text-center">
+                        Purge All Tasks & Analytics
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= EDIT TASK MODAL ================= -->
+    <div id="editTaskModal"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber max-w-lg w-full p-6 space-y-4 shadow-2xl">
+            <div
+                class="flex items-center justify-between border-b border-lightSurface-border dark:border-obsidian-border pb-3">
+                <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">
+                    Edit Task Objective
+                </h3>
+                <button id="closeEditModal"
+                    class="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <form id="editTaskForm" class="space-y-3 text-xs">
+                <input type="hidden" id="editTaskId" />
+                <div>
+                    <label
+                        class="block text-slate-700 dark:text-slate-300 font-semibold mb-1 uppercase tracking-wider text-[10px]">Title</label>
+                    <input type="text" id="editTaskTitle" required
+                        class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border rounded-xl px-3 py-2 text-slate-900 dark:text-white outline-none focus:border-lime" />
+                </div>
+                <div>
+                    <label
+                        class="block text-slate-700 dark:text-slate-300 font-semibold mb-1 uppercase tracking-wider text-[10px]">Description</label>
+                    <textarea id="editTaskDesc" rows="2"
+                        class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border rounded-xl px-3 py-2 text-slate-900 dark:text-white outline-none focus:border-lime"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label
+                            class="block text-slate-700 dark:text-slate-300 font-semibold mb-1 uppercase tracking-wider text-[10px]">Priority</label>
+                        <select id="editTaskPriority"
+                            class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border rounded-xl px-2 py-2 text-slate-900 dark:text-white outline-none">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-slate-700 dark:text-slate-300 font-semibold mb-1 uppercase tracking-wider text-[10px]">Due
+                            Date</label>
+                        <input type="date" id="editTaskDueDate"
+                            class="w-full bg-lightSurface-highlight dark:bg-obsidian-card border border-lightSurface-border dark:border-obsidian-border rounded-xl px-2 py-2 text-slate-900 dark:text-white outline-none" />
+                    </div>
+                </div>
+                <div
+                    class="flex justify-end gap-2 pt-2 border-t border-lightSurface-border dark:border-obsidian-border">
+                    <button type="button" id="cancelEditBtn"
+                        class="px-4 py-2 rounded-xl text-slate-500 hover:text-black dark:hover:text-white">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="px-5 py-2 rounded-pill bg-lime hover:bg-lime-hover text-black font-display font-bold">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= SECTION: GEMINI AI TASK BREAKDOWN MODAL ================= -->
+    <div id="taskBreakdownModal"
+        class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-obsidian-surface border border-lightSurface-border dark:border-obsidian-border rounded-cyber max-w-xl w-full p-6 space-y-5 shadow-2xl relative">
+            <div
+                class="flex items-center justify-between border-b border-lightSurface-border dark:border-obsidian-border pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-lime animate-pulse"></span>
+                    <h3 class="font-display font-black text-lg text-slate-900 dark:text-white">
+                        ✦ Gemini Smart Decomposer
+                    </h3>
+                </div>
+                <button id="closeBreakdownModal"
+                    class="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Target
+                    Objective</span>
+                <h4 id="breakdownParentTitle"
+                    class="text-sm font-display font-bold text-slate-900 dark:text-lime truncate">
+                    Evaluating Objective...
+                </h4>
+            </div>
+
+            <!-- Loading State -->
+            <div id="breakdownLoading" class="py-8 flex flex-col items-center justify-center space-y-3">
+                <div class="w-8 h-8 border-2 border-lime border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 font-medium">
+                    Gemini 3 Flash is formulating micro-milestones...
+                </p>
+            </div>
+
+            <!-- Breakdown Results List -->
+            <div id="breakdownResultsList" class="hidden space-y-2.5 max-h-72 overflow-y-auto pr-1">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Footer Actions -->
+            <div
+                class="flex items-center justify-between pt-3 border-t border-lightSurface-border dark:border-obsidian-border text-xs">
+                <span class="text-slate-500 dark:text-slate-400 text-[11px]" id="breakdownSummaryNote">Select steps to
+                    adopt as tracked subtasks</span>
+                <div class="flex gap-2">
+                    <button id="copyBreakdownBtn"
+                        class="px-3 py-1.5 rounded-xl bg-lightSurface-highlight dark:bg-obsidian-card hover:bg-slate-200 dark:hover:bg-white/5 border border-lightSurface-border dark:border-obsidian-border text-slate-800 dark:text-slate-300 font-bold">
+                        Copy Plan
+                    </button>
+                    <button id="applyBreakdownBtn"
+                        class="px-4 py-1.5 rounded-pill bg-lime hover:bg-lime-hover text-black font-display font-bold shadow-sm">
+                        Adopt Subtasks
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+    <div id="toastNotification"
+        class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-900 dark:bg-obsidian-card border border-lime/40 text-white shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="w-2.5 h-2.5 rounded-full bg-lime shrink-0"></div>
+        <span id="toastMessage" class="text-xs font-medium">Action accomplished successfully.</span>
+        <button id="toastUndoBtn" class="hidden text-xs text-lime font-bold underline pl-2">
+            Undo
+        </button>
+    </div>
+
+    <!-- ================= APPLICATION LOGIC (VANILLA JS ES6+) ================= -->
+    <script src="script.js"></script>
+</body>
+
+</html>
